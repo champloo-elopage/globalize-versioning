@@ -19,7 +19,7 @@ Globalize::ActiveRecord::ActMacro.module_eval do
       ::ActiveRecord::Base.extend(Globalize::Versioning::PaperTrail)
       if options[:versioning].is_a?(Hash)
         translation_class.has_paper_trail(options[:versioning][:options])
-      else
+      elsif options[:versioning] == :paper_trail
         translation_class.has_paper_trail
       end
     end
